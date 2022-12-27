@@ -1,6 +1,8 @@
 # pokedex
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a personal project to practice Vue.js
+
+
 
 ## Recommended IDE Setup
 

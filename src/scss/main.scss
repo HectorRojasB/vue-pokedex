@@ -1,0 +1,20 @@
+@import 'foundation-sites/dist/css/foundation.css';
+
+@import 'common/variables';
+@import 'common/typography';
+
+@import 'components/header';
+@import 'components/search';
+@import 'components/pokemonCard';
+
+body {
+  background: $medium-gray;
+}
+.main-container {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background: $background;
+}
+
+
