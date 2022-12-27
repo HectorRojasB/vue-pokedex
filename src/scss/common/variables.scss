@@ -1,27 +1,31 @@
+@use "sass:map";
 //COLORS
 
 //Types
-$ice: #9AD6DF;
-$bug: #A7B723;
-$dark: #75574C;
-$fire: #F57D31;
-$rock: #B69E31;
-$fairy: #E69EAC;
-$steel: #B7B9D0;
-$ghost: #70559B;
-$water: #6493EB;
-$grass: #74CB48;
-$normal: #AAA67F;
-$flying: #A891EC;
-$ground: #DEC16C;
-$poison: #A43E9E;
-$dragon: #7037FF;
-$psychic: #FB5584;
-$electric: #F9CF30;
-$fighting: #C12239;
+$types: (
+        "ice": #9AD6DF,
+        "bug": #A7B723,
+        "dark": #75574C,
+        "fire": #F57D31,
+        "rock": #B69E31,
+        "fairy": #E69EAC,
+        "steel": #B7B9D0,
+        "ghost": #70559B,
+        "water": #6493EB,
+        "grass": #74CB48,
+        "normal": #AAA67F,
+        "flying": #A891EC,
+        "ground": #DEC16C,
+        "poison": #A43E9E,
+        "dragon": #7037FF,
+        "psychic": #FB5584,
+        "electric": #F9CF30,
+        "fighting": #C12239,
+);
+
 
 //Grayscale
-$white: #FFFFF;
+$white: #FFFFFF;
 $dark-gray: #212121;
 $light-gray: #E0E0E0;
 $background: #F7F7F7;
