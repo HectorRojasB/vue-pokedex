@@ -7,7 +7,7 @@
       <img class="image" :src="imageUrl" :alt="name" />
     </div>
     <div class="name-container">
-      <p class="body-text small">{{ name }}</p>
+      <p class="body-text large">{{ name }}</p>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 export default {
   props: {
     id: Number,
-    number: String,
+    number: Number,
     imageUrl: String,
     name: String,
     type: String,

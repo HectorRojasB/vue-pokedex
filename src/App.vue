@@ -6,18 +6,35 @@
         <Search />
         <div class="items-container">
           <PokemonCard
-            name="Aron"
-            number="#304"
-            image-url="https://assets.pokemon.com/assets/cms2/img/pokedex/full/304.png"
-            type="steel"
+            v-for="pokemon in store"
+            :key="pokemon.id"
+            :name="pokemon.name"
+            :number="pokemon.id"
+            :image-url="pokemon.sprites.front_default"
+            :type="pokemon.types[0].type.name"
           ></PokemonCard>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
+<script>
 import Header from "@/components/Header.vue";
 import Search from "@/components/Search.vue";
 import PokemonCard from "@/components/PokemonCard.vue";
+import { getPokemons } from "@/api/routes";
+import { store } from "@/store";
+
+export default {
+  components: { Header, Search, PokemonCard },
+  computed: {
+    store() {
+      return store.pokemons;
+    },
+  },
+  created() {
+    getPokemons();
+    console.log(this.store);
+  },
+};
 </script>
