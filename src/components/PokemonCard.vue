@@ -1,5 +1,9 @@
 <template>
-  <div class="pokemon-card" :class="pokemon.types[0].type.name">
+  <div
+    class="pokemon-card"
+    :class="mainType"
+    v-on:click="this.isModalOpen = true"
+  >
     <div class="number-container">
       <p class="body-text small number">{{ pokemon.number }}</p>
     </div>
@@ -14,12 +18,81 @@
       <p class="body-text large">{{ pokemon.name }}</p>
     </div>
   </div>
+  <PokemonDetail
+    :pokemon="pokemon"
+    :main-type="mainType"
+    v-if="this.isModalOpen"
+    v-on:close-modal="this.isModalOpen = false"
+  />
 </template>
 
 <script>
+import PokemonDetail from '@/components/PokemonDetail/Index.vue';
+
 export default {
+  components: { PokemonDetail },
+  data() {
+    return {
+      isModalOpen: false
+    };
+  },
   props: {
-    pokemon: Object
+    pokemon: Object,
+    mainType: String
   }
 };
 </script>
+
+<style lang="scss">
+.pokemon-card {
+  margin-left: 8px;
+  margin-top: 16px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: calc((100% / 3) - 16px);
+
+  @each $type, $color in $types {
+    &.#{$type} {
+      border-color: $color;
+
+      .number {
+        color: $color;
+      }
+
+      .name-container {
+        background: $color;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .number-container {
+    display: flex;
+    padding: 4px 8px;
+    justify-content: flex-end;
+  }
+
+  .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .image {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  .name-container {
+    color: $white;
+    display: flex;
+    padding: 4px 8px;
+    justify-content: center;
+    border-radius: 0 0 8px 8px;
+    text-transform: capitalize;
+  }
+}
+</style>

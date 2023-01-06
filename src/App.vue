@@ -9,7 +9,8 @@
             v-for="pokemon in store"
             :pokemon="pokemon"
             :key="pokemon.name"
-          ></PokemonCard>
+            :main-type="pokemon.types[0].type.name"
+          />
         </div>
       </div>
     </div>
@@ -30,7 +31,23 @@ export default {
     }
   },
   created() {
-    getPokemons(), console.log(this.store);
+    getPokemons();
   }
 };
 </script>
+
+<style lang="scss">
+.main-container {
+  position: relative;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background: $background;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  justify-content: space-between;
+}
+</style>
