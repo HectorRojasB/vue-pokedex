@@ -3,6 +3,10 @@
 
 @import 'common/variables';
 @import 'common/typography';
-
 @import 'components/header';
+
 @import 'components/search';
+
+body {
+  background: $medium-gray;
+}

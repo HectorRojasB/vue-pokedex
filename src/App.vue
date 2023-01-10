@@ -1,17 +1,15 @@
 <template>
-  <div class="grid-container">
-    <div class="grid-x align-center">
-      <div class="cell large-5 medium-8 main-container">
-        <TopSection />
-        <Search />
-        <div class="items-container">
-          <PokemonCard
-            v-for="pokemon in store"
-            :pokemon="pokemon"
-            :key="pokemon.name"
-            :main-type="pokemon.types[0].type.name"
-          />
-        </div>
+  <div class="flex-container align-center">
+    <div class="main-container">
+      <TopSection />
+      <Search />
+      <div class="items-container">
+        <PokemonCard
+          v-for="pokemon in store"
+          :pokemon="pokemon"
+          :key="pokemon.name"
+          :main-type="pokemon.types[0].type.name"
+        />
       </div>
     </div>
   </div>
@@ -35,9 +33,9 @@ export default {
   }
 };
 </script>
-
 <style lang="scss">
 .main-container {
+  width: 487px;
   position: relative;
   border-radius: 8px;
   padding: 16px 24px;
@@ -49,5 +47,9 @@ export default {
   flex-wrap: wrap;
   margin-top: 16px;
   justify-content: space-between;
+}
+.parent-container {
+  display: flex;
+  justify-content: center;
 }
 </style>

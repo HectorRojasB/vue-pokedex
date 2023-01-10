@@ -1,41 +1,43 @@
 <template>
-  <div class="pokemon-detail" :class="mainType">
-    <img
-      src="../../icons/Pokeball (1).png"
-      class="pokeball-shadow"
-      alt="pokeball mask"
-    />
-    <div class="header">
-      <div class="title">
-        <img
-          src="../../icons/arrow-left.png"
-          class="arrow-icon"
-          v-on:click="$emit('close-modal')"
-          alt="back arrow"
-        />
-        <p class="heading xlarge">{{ pokemon.name }}</p>
-      </div>
-      <p class="heading medium">#{{ pokemon.id }}</p>
-    </div>
-
-    <div class="pokemon-sprite">
+  <div class="modal-container">
+    <div id="pokemon-detail" class="pokemon-detail" :class="mainType">
       <img
-        class="sprite"
-        :src="pokemon.sprites.front_default"
-        :alt="pokemon.name"
+        src="../../icons/pokeball.png"
+        class="pokeball-shadow"
+        alt="pokeball mask"
       />
-    </div>
+      <div class="header">
+        <div class="title">
+          <img
+            src="../../icons/arrow-left.png"
+            class="arrow-icon"
+            v-on:click="$emit('close-modal')"
+            alt="back arrow"
+          />
+          <p class="heading xlarge">{{ pokemon.name }}</p>
+        </div>
+        <p class="heading medium">#{{ pokemon.id }}</p>
+      </div>
 
-    <div class="info-wrapper">
-      <Types :types="pokemon.types" />
+      <div class="pokemon-sprite">
+        <img
+          class="sprite"
+          :src="pokemon.sprites.front_default"
+          :alt="pokemon.name"
+        />
+      </div>
 
-      <About
-        :type="mainType"
-        :weight="pokemon.weight"
-        :height="pokemon.height"
-        :abilities="pokemon.abilities"
-      />
-      <Stats :type="mainType" :stats="pokemon.stats" />
+      <div class="info-wrapper">
+        <Types :types="pokemon.types" />
+
+        <About
+          :type="mainType"
+          :weight="pokemon.weight"
+          :height="pokemon.height"
+          :abilities="pokemon.abilities"
+        />
+        <Stats :type="mainType" :stats="pokemon.stats" />
+      </div>
     </div>
   </div>
 </template>
@@ -55,13 +57,25 @@ export default {
 </script>
 
 <style lang="scss">
-.pokemon-detail {
+.modal-container {
   top: 0;
-  left: 29%;
-  height: 100vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
   position: fixed;
-  width: inherit;
+}
+.pokemon-detail {
+  top: 50%;
+  left: 50%;
+  width: 488px;
+  height: 100vh;
+  position: absolute;
+  border-radius: 8px;
   flex-direction: column;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 4px rgba($dark-gray, 0.25);
 
   @each $type, $color in $types {
     &.#{$type} {

@@ -18,24 +18,26 @@
       <p class="body-text large">{{ pokemon.name }}</p>
     </div>
   </div>
-  <PokemonDetail
-    :pokemon="pokemon"
-    :main-type="mainType"
-    v-if="this.isModalOpen"
-    v-on:close-modal="this.isModalOpen = false"
-  />
+  <Transition>
+    <PokemonDetail
+      :pokemon="pokemon"
+      :main-type="mainType"
+      v-if="this.isModalOpen"
+      v-on:close-modal="this.isModalOpen = false"
+    />
+  </Transition>
 </template>
 
 <script>
 import PokemonDetail from '@/components/PokemonDetail/Index.vue';
 
 export default {
-  components: { PokemonDetail },
   data() {
     return {
-      isModalOpen: false
+      isModalOpen: this.isModalOpen
     };
   },
+  components: { PokemonDetail },
   props: {
     pokemon: Object,
     mainType: String
@@ -94,5 +96,20 @@ export default {
     border-radius: 0 0 8px 8px;
     text-transform: capitalize;
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  top: 100%;
+}
+
+.v-enter-to,
+.v-leave-from {
+  top: 0;
 }
 </style>

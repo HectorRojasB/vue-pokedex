@@ -28,7 +28,7 @@ export default {
     type: String,
     weight: Number,
     height: Number,
-    abilities: []
+    abilities: Object
   }
 };
 </script>

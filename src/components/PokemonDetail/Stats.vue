@@ -32,7 +32,7 @@ export default {
   },
   props: {
     type: String,
-    stats: []
+    stats: Object
   }
 };
 </script>
