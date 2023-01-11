@@ -3,3 +3,4 @@
     <input class="input" placeholder="Search" />
   </div>
 </template>
+//TODO: implement search functionality

@@ -1,7 +1,7 @@
-import axios from "axios";
-import { store } from "@/store";
+import axios from 'axios';
+import { store } from '@/store';
 
-const baseUrl = "https://pokeapi.co/api/v2/";
+const baseUrl = 'https://pokeapi.co/api/v2/';
 export const getPokemons = () => {
   return axios.get(`${baseUrl}pokemon?limit=100`).then((response) => {
     response.data.results.forEach((singleRequest: any) => {
